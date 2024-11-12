@@ -1,10 +1,14 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { getPluginElement, RICH_TEXT_BAR_ID, useEditorContext } from 'easy-email-editor';
+import {
+  getPluginElement,
+  RICH_TEXT_BAR_ID,
+  useEditorContext,
+} from 'j7-easy-email-editor';
 import { Tools } from './components/Tools';
 import styleText from './shadow-dom.scss?inline';
 
-export function RichTextToolBar(props: { onChange: (s: string) => void; }) {
+export function RichTextToolBar(props: { onChange: (s: string) => void }) {
   const { initialized } = useEditorContext();
   const root = initialized && getPluginElement();
 
@@ -42,7 +46,7 @@ export function RichTextToolBar(props: { onChange: (s: string) => void; }) {
             <Tools onChange={props.onChange} />
           </div>
         </>,
-        root
+        root,
       )}
     </>
   );

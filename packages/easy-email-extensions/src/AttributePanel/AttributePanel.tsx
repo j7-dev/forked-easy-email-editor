@@ -5,7 +5,7 @@ import {
   useBlock,
   useEditorContext,
   useFocusIdx,
-} from 'easy-email-editor';
+} from 'j7-easy-email-editor';
 import { RichTextField } from '../components/Form/RichTextField';
 import { PresetColorsProvider } from './components/provider/PresetColorsProvider';
 import ReactDOM from 'react-dom';
@@ -38,9 +38,9 @@ export function AttributePanel() {
           </div>
         )}
 
-        <div style={{ position: 'absolute' }}>
+        {/* <div style={{ position: 'absolute' }}>
           <RichTextField idx={focusIdx} />
-        </div>
+        </div> */}
         <TableOperation />
         <>
           {shadowRoot &&
