@@ -1,8 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { getNodeTypeFromClassName, BlockManager } from 'easy-email-core';
+import { getNodeTypeFromClassName, BlockManager } from 'j7-easy-email-core';
 import { createPortal } from 'react-dom';
-import { getEditorRoot, useEditorContext, useFocusIdx, useHoverIdx, useLazyState } from 'easy-email-editor';
+import {
+  getEditorRoot,
+  useEditorContext,
+  useFocusIdx,
+  useHoverIdx,
+  useLazyState,
+} from 'j7-easy-email-editor';
 import { awaitForElement } from '@extensions/utils/awaitForElement';
 
 export function HoverTooltip() {
@@ -99,7 +105,7 @@ function TipNode(props: TipNodeProps) {
       return `${t('Insert after')} ${title}`;
     } else if (direction === 'right' || direction === 'left') {
       return t('Drag here');
-    }    
+    }
     return `${t('Drag to')} ${title}`;
   }, [direction, title]);
 

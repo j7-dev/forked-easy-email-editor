@@ -1,4 +1,4 @@
-import { IBlockData, BlockManager, getParentIdx } from 'easy-email-core';
+import { IBlockData, BlockManager, getParentIdx } from 'j7-easy-email-core';
 import { get, cloneDeep } from 'lodash';
 
 export function getContextMergeTags(
@@ -10,7 +10,7 @@ export function getContextMergeTags(
     currentIdx: string,
     combineMergeTags: { [key: string]: any },
   ): { [key: string]: any } => {
-    const parentBlockData = get(context, currentIdx) as IBlockData | undefined;
+    const parentBlockData = get(context, currentIdx) ;
     if (!parentBlockData) return combineMergeTags;
 
     const dataSource = parentBlockData.data?.value?.dataSource;

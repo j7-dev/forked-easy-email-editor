@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { I18nManager, t } from 'easy-email-core';
+import { I18nManager, t } from 'j7-easy-email-core';
 
 export const LanguageProvider: React.FC<{
   children?: React.ReactNode;

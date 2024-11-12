@@ -9,9 +9,7 @@ import {
   ConfigProvider,
   Dropdown,
   Menu,
-  Message,
   PageHeader,
-  Select,
 } from '@arco-design/web-react';
 import { useQuery } from '@demo/hooks/useQuery';
 import { useHistory } from 'react-router-dom';
@@ -20,23 +18,19 @@ import { Loading } from '@demo/components/loading';
 import mjml from 'mjml-browser';
 import services from '@demo/services';
 import { saveAs } from 'file-saver';
-import {
-  BlockAvatarWrapper,
-  EmailEditor,
-  EmailEditorProvider,
-  IEmailTemplate,
-} from 'easy-email-editor';
-
+import { EmailEditor, EmailEditorProvider, IEmailTemplate } from 'j7-easy-email-editor';
 import { Stack } from '@demo/components/Stack';
 import { pushEvent } from '@demo/utils/pushEvent';
 import { UserStorage } from '@demo/utils/user-storage';
-
-import { AdvancedType, IBlockData, JsonToMjml } from 'easy-email-core';
-import { ExtensionProps, StandardLayout } from 'easy-email-extensions';
+import { AdvancedType, IBlockData, JsonToMjml } from 'j7-easy-email-core';
+import { ExtensionProps, StandardLayout } from 'j7-easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
-import 'easy-email-editor/lib/style.css';
-import 'easy-email-extensions/lib/style.css';
+// Register external blocks
+import './components/CustomBlocks';
+
+import 'j7-easy-email-editor/lib/style.css';
+import 'j7-easy-email-extensions/lib/style.css';
 import blueTheme from '@arco-themes/react-easy-email-theme/css/arco.css?inline';
 
 import { Uploader } from '@demo/utils/Uploader';

@@ -8,7 +8,7 @@ import {
   getValueByIdx,
   BlockManager,
   createBlockDataByType,
-} from 'easy-email-core';
+} from 'j7-easy-email-core';
 import { cloneDeep, debounce, get } from 'lodash';
 import { useCallback, useContext } from 'react';
 
@@ -29,7 +29,7 @@ export function useBlock() {
 
   const { autoComplete } = useEditorProps();
 
-  const focusBlock = get(values, focusIdx) as IBlockData | null;
+  const focusBlock = get(values, focusIdx) ;
 
   const { redo, undo, redoable, undoable, reset } = useContext(RecordContext);
 
@@ -46,7 +46,7 @@ export function useBlock() {
       let { type, parentIdx, positionIndex, payload } = params;
       let nextFocusIdx: string;
       const values = cloneDeep(getState().values) as IEmailTemplate;
-      const parent = get(values, parentIdx) as IBlockData | null;
+      const parent = get(values, parentIdx) ;
       if (!parent) {
         console.error(`Invalid ${type} block`);
         return;
@@ -180,7 +180,7 @@ export function useBlock() {
 
       const parentIdx = getParentIdx(idx);
       if (!parentIdx) return;
-      const parent = get(values, getParentIdx(idx) || '') as IBlockData | null;
+      const parent = get(values, getParentIdx(idx) || '') ;
       if (!parent) {
         console.error('Invalid block');
         return;
@@ -208,7 +208,7 @@ export function useBlock() {
         return;
       }
       const parentIdx = getParentIdx(idx);
-      const parent = get(values, getParentIdx(idx) || '') as IBlockData | null;
+      const parent = get(values, getParentIdx(idx) || '') ;
       const blockIndex = getIndexByIdx(idx);
       if (!parentIdx || !parent) {
         if (block.type === BasicType.PAGE) {
