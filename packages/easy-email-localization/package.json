@@ -1,8 +1,8 @@
 {
-  "name": "easy-email-localization",
+  "name": "j7-easy-email-localization",
   "license": "MIT",
   "description": "Email editor",
-  "version": "4.16.1",
+  "version": "4.16.4",
   "author": "m-Ryan",
   "keywords": [],
   "files": [
@@ -13,5 +13,6 @@
   },
   "devDependencies": {
     "prettier": "^2.8.4"
-  }
+  },
+  "gitHead": "c93209ed9e8c8c87d660fae792d97842f8d8d26c"
 }

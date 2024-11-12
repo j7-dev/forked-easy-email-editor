@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useFocusIdx, IconFont } from 'easy-email-editor';
+import { useFocusIdx, IconFont } from 'j7-easy-email-editor';
 import { IconLink } from '@arco-design/web-react/icon';
 import { SelectField, TextField } from '../../../components/Form';
 import { Grid, Popover, Space, Button as ArcoButton } from '@arco-design/web-react';

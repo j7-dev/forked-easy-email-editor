@@ -1,5 +1,5 @@
 import mjml from 'mjml-browser';
-import { IBlockData, BlockType, BasicType, BlockManager } from 'easy-email-core';
+import { IBlockData, BlockType, BasicType, BlockManager } from 'j7-easy-email-core';
 import { MjmlToJson } from './MjmlToJson';
 
 const domParser = new DOMParser();

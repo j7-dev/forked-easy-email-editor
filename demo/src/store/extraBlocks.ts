@@ -1,4 +1,4 @@
-import { BlockGroup, CollectedBlock } from 'easy-email-editor';
+import { BlockGroup, CollectedBlock } from 'j7-easy-email-editor';
 import createSliceState from './common/createSliceState';
 
 export const COLLECTION_KEY = 'COLLECTION_KEY';

@@ -14,8 +14,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@extensions': path.resolve('./src'),
-      'easy-email-core': path.resolve('../easy-email-core/lib'),
-      'easy-email-editor': path.resolve('../easy-email-editor/lib'),
+      'j7-easy-email-core': path.resolve('../easy-email-core/lib'),
+      'j7-easy-email-editor': path.resolve('../easy-email-editor/lib'),
     },
   },
   define: {},
@@ -27,7 +27,7 @@ export default defineConfig({
     target: 'es2015',
     lib: {
       entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: 'easy-email-extension',
+      name: 'j7-easy-email-extension',
       formats: ['es'],
       fileName: () => 'index.js',
     },
@@ -39,8 +39,8 @@ export default defineConfig({
         'react-dom/server',
         'mjml-browser',
         'react-final-form',
-        'easy-email-core',
-        'easy-email-editor',
+        'j7-easy-email-core',
+        'j7-easy-email-editor',
         'uuid',
       ],
       output: {},

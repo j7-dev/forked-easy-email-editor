@@ -1,6 +1,6 @@
 import React from 'react';
-import { BasicType, getParentIdx, getSiblingIdx } from 'easy-email-core';
-import { useBlock, useFocusIdx, useEditorProps, isTextBlock } from 'easy-email-editor';
+import { BasicType, getParentIdx, getSiblingIdx } from 'j7-easy-email-core';
+import { useBlock, useFocusIdx, useEditorProps, isTextBlock } from 'j7-easy-email-editor';
 import { classnames } from '@extensions/utils/classnames';
 import { useAddToCollection } from '@extensions/hooks/useAddToCollection';
 import { getBlockTitle } from '@extensions/utils/getBlockTitle';
@@ -29,7 +29,7 @@ export function Toolbar() {
     setModalVisible(true);
   };
 
-  const handleCopy: React.MouseEventHandler<HTMLDivElement> = (ev) => {
+  const handleCopy: React.MouseEventHandler<HTMLDivElement> = ev => {
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
@@ -89,10 +89,10 @@ export function Toolbar() {
             {focusBlock && getBlockTitle(focusBlock, false)}
           </div>
           <div
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
             }}
-            onMouseDown={(ev) => {
+            onMouseDown={ev => {
               ev.preventDefault();
             }}
             style={{
@@ -107,14 +107,20 @@ export function Toolbar() {
               iconName='icon-back-parent'
               onClick={handleSelectParent}
             />
-            <ToolItem iconName='icon-copy' onClick={handleCopy} />
+            <ToolItem
+              iconName='icon-copy'
+              onClick={handleCopy}
+            />
             {props.onAddCollection && (
               <ToolItem
                 iconName='icon-collection'
                 onClick={handleAddToCollection}
               />
             )}
-            <ToolItem iconName='icon-delete' onClick={handleDelete} />
+            <ToolItem
+              iconName='icon-delete'
+              onClick={handleDelete}
+            />
           </div>
         </div>
       </div>

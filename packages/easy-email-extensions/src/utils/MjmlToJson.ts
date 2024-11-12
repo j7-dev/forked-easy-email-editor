@@ -1,4 +1,4 @@
-import { BlockManager,IPage, BasicType, IBlockData } from 'easy-email-core';
+import { BlockManager,IPage, BasicType, IBlockData } from 'j7-easy-email-core';
 import { identity, isString, pickBy } from 'lodash';
 import { parseXMLtoBlock } from './parseXMLtoBlock';
 

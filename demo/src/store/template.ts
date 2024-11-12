@@ -3,8 +3,8 @@ import createSliceState from './common/createSliceState';
 import { Message } from '@arco-design/web-react';
 import { history } from '@demo/utils/history';
 import { emailToImage } from '@demo/utils/emailToImage';
-import { IBlockData, BlockManager, BasicType, AdvancedType } from 'easy-email-core';
-import { IEmailTemplate } from 'easy-email-editor';
+import { IBlockData, BlockManager, BasicType, AdvancedType } from 'j7-easy-email-core';
+import { IEmailTemplate } from 'j7-easy-email-editor';
 import { getTemplate } from '@demo/config/getTemplate';
 
 export function getAdaptor(data: IArticle): IEmailTemplate {

@@ -9,10 +9,10 @@
       "@extensions/*": [
         "./src/*"
       ],
-      "easy-email-core": [
+      "j7-easy-email-core": [
         "../easy-email-core"
       ],
-      "easy-email-editor": [
+      "j7-easy-email-editor": [
         "../easy-email-editor"
       ]
     }

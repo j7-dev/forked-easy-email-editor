@@ -1,6 +1,6 @@
 import { AttributesPanelWrapper } from '@extensions/AttributePanel';
 import { Collapse, Tooltip, Button } from '@arco-design/web-react';
-import { IconFont, Stack } from 'easy-email-editor';
+import { IconFont, Stack } from 'j7-easy-email-editor';
 import React, { useState } from 'react';
 import { Border } from '../../attributes/Border';
 import { Color } from '../../attributes/Color';
