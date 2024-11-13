@@ -138,9 +138,7 @@ const defaultCategories: ExtensionProps['categories'] = [
           }}
         >
           <img
-            src={
-              'http://res.cloudinary.com/dwkp0e1yo/image/upload/v1665841389/ctbjtig27parugrztdhk.png'
-            }
+            src={'https://placehold.co/120x120'}
             style={{
               maxWidth: '100%',
             }}
