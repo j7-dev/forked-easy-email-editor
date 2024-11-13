@@ -1,8 +1,15 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client", "node"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "types": [
+      "vite/client",
+      "node"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -20,18 +27,38 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@demo": ["src"],
-      "@demo/*": ["src/*"],
-      "easy-email-localization/*": ["../packages/easy-email-localization/*"],
-      "easy-email-editor/lib/locales.json": [
+      "@demo": [
+        "src"
+      ],
+      "@demo/*": [
+        "src/*"
+      ],
+      "j7-easy-email-localization/*": [
+        "../packages/easy-email-localization/*"
+      ],
+      "j7-easy-email-editor/lib/locales.json": [
         "../packages/easy-email-editor/lib/locales.json"
       ],
-      "easy-email-editor": ["../packages/easy-email-editor/src/index.tsx"],
-      "easy-email-core": ["../packages/easy-email-core/src/index.tsx"],
-      "easy-email-extensions": ["../packages/easy-email-extensions/src/index.tsx"],
-      "easy-email-config-panel": ["../packages/easy-email-config-panel/src/index.tsx"]
+      "j7-easy-email-editor": [
+        "../packages/easy-email-editor/src/index.tsx"
+      ],
+      "j7-easy-email-core": [
+        "../packages/easy-email-core/src/index.tsx"
+      ],
+      "j7-easy-email-extensions": [
+        "../packages/easy-email-extensions/src/index.tsx"
+      ],
+      "j7-easy-email-config-panel": [
+        "../packages/easy-email-config-panel/src/index.tsx"
+      ]
     }
   },
-  "include": ["./src", "./example", "./typings"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src",
+    "./example",
+    "./typings"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

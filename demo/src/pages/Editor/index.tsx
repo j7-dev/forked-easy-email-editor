@@ -9,7 +9,9 @@ import {
   ConfigProvider,
   Dropdown,
   Menu,
+  Message,
   PageHeader,
+  Select,
 } from '@arco-design/web-react';
 import { useQuery } from '@demo/hooks/useQuery';
 import { useHistory } from 'react-router-dom';
@@ -18,12 +20,19 @@ import { Loading } from '@demo/components/loading';
 import mjml from 'mjml-browser';
 import services from '@demo/services';
 import { saveAs } from 'file-saver';
-import { EmailEditor, EmailEditorProvider, IEmailTemplate } from 'j7-easy-email-editor';
+import {
+  BlockAvatarWrapper,
+  EmailEditor,
+  EmailEditorProvider,
+  IEmailTemplate,
+} from 'j7-easy-email-editor';
+
 import { Stack } from '@demo/components/Stack';
 import { pushEvent } from '@demo/utils/pushEvent';
 import { UserStorage } from '@demo/utils/user-storage';
-import { AdvancedType, IBlockData, JsonToMjml } from 'j7-easy-email-core';
-import { ExtensionProps, StandardLayout } from 'j7-easy-email-extensions';
+
+import { AdvancedType, BasicType, IBlockData, JsonToMjml } from 'j7-easy-email-core';
+import { ExtensionProps, MjmlToJson, StandardLayout } from 'j7-easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
 // Register external blocks
