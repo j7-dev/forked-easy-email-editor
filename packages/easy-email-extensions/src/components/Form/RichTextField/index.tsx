@@ -115,11 +115,17 @@ function FieldWrapper(
     [input],
   );
 
+  /**
+   * TODO
+   * RichTextToolBar 細節使用上會有一些 bug
+   * 先隱藏起來，之後如果修好再開啟
+   */
+
   return (
     <>
-      {contentEditableType === ContentEditableType.RichText && (
+      {/* {contentEditableType === ContentEditableType.RichText && (
         <RichTextToolBar onChange={debounceCallbackChange} />
-      )}
+      )} */}
       <InlineText
         {...rest}
         onChange={debounceCallbackChange}
