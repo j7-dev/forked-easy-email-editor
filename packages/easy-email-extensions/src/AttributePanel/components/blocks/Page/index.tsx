@@ -17,7 +17,7 @@ interface PageProps {
   hideSubTitle?: boolean;
   hideSubject?: boolean;
 }
-export function Page({ hideSubTitle, hideSubject }: PageProps) {
+export function Page({ hideSubTitle = true, hideSubject = true }: PageProps) {
   const { focusIdx } = useFocusIdx();
 
   if (!focusIdx) return null;
