@@ -38,9 +38,9 @@ export function AttributePanel() {
           </div>
         )}
 
-        {/* <div style={{ position: 'absolute' }}>
+        <div style={{ position: 'absolute' }}>
           <RichTextField idx={focusIdx} />
-        </div> */}
+        </div>
         <TableOperation />
         <>
           {shadowRoot &&
