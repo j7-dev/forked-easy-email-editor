@@ -119,7 +119,7 @@ function FieldWrapper(
    * TODO
    * RichTextToolBar 細節使用上會有一些 bug
    * 先隱藏起來，之後如果修好再開啟
-   * @author j7
+   * @author jerry
    */
 
   return (
