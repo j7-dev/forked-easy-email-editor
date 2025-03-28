@@ -1,38 +1,91 @@
 import React from 'react';
 import { Card, Grid } from '@arco-design/web-react';
 import styles from './TemplatePanel.module.scss';
-import { useEditorProps } from 'easy-email-editor';
-import { IEmailTemplate } from 'easy-email-editor';
+import { useEmailEditor } from '@/components/Provider/EmailEditorProvider';
 import templates from './config/templates.json';
+import { getTemplate } from './config/getTemplate';
+import { IEmailTemplate } from '@/typings';
+import { IBlockData } from '@core/typings';
+
+interface Template {
+  path: string;
+  article_id: number;
+  title: string;
+  summary: string;
+  picture: string;
+  category_id: number;
+  origin_source: string;
+  readcount: number;
+  user_id: number;
+  secret: number;
+  level: number;
+  created_at: number;
+  updated_at: number;
+  deleted_at: number;
+  tags: Array<{
+    tag_id: number;
+    name: string;
+    picture: string;
+    desc: string;
+    created_at: number;
+    user_id: number;
+    updated_at: number;
+    deleted_at: number;
+  }>;
+}
 
 const Row = Grid.Row;
 const Col = Grid.Col;
 
+interface content {
+  article_id: number;
+  content: string;
+}
+
+interface IArticle {
+  article_id: number;
+  user_id: number;
+  category_id: number;
+  tags: { tag_id: number; }[]; // 由于懒得写接口，这个接口是拿之前的，其实不需要数组
+  picture: string;
+  title: string;
+  summary: string;
+  secret: number;
+  readcount: number;
+  updated_at: number;
+  created_at: number;
+  level: number;
+  content: content;
+}
+
+function getAdaptor(data: IArticle): IEmailTemplate {
+  const content = JSON.parse(data.content.content) as IBlockData;
+  return {
+    ...data,
+    content,
+    subject: data.title,
+    subTitle: data.summary,
+  };
+}
+
 export function TemplatePanel() {
-  const editorProps = useEditorProps();
+  const { handleTemplateChange } = useEmailEditor();
 
-  const handleTemplateSelect = async (template: { path: string; article_id: number; title: string; summary: string; picture: string; }) => {
+  const handleTemplateSelect = async (template: Template) => {
     try {
-      // 加载模板数据
-      const response = await fetch(`/templates/${template.path}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const templateData: IEmailTemplate = await response.json();
+      console.log('template article_id', template.article_id);
+      const _templateData = await getTemplate(template.article_id);
 
-      // 更新编辑器内容
-      // @ts-ignore
-      if (editorProps.onLoadTemplate) {
-        // @ts-ignore
-        editorProps.onLoadTemplate(templateData);
-      } else {
-        // 如果没有 onLoadTemplate，尝试直接更新 content
-        // @ts-ignore
-        if (editorProps.onChange) {
-          // @ts-ignore
-          editorProps.onChange(templateData);
-        }
-      }
+      const templateContent = getAdaptor(_templateData);
+
+      const templateData: IEmailTemplate = {
+        subject: template.title,
+        subTitle: template.summary,
+        content: templateContent.content
+      };
+
+      console.log('Final template data:', templateData);
+      handleTemplateChange(templateData);
     } catch (error) {
       console.error('Failed to load template:', error);
     }
@@ -42,7 +95,7 @@ export function TemplatePanel() {
     <div className={styles.templatePanel}>
       <TemplateWarning />
       <Row gutter={[16, 16]}>
-        {templates.map((template: { path: string; article_id: number; title: string; summary: string; picture: string; category_id: number; origin_source: string; readcount: number; user_id: number; secret: number; level: number; created_at: number; updated_at: number; deleted_at: number; tags: any[]; }) => (
+        {(templates as Template[]).map((template) => (
           <Col key={template.article_id} span={12}>
             <Card
               hoverable
