@@ -1,7 +1,7 @@
 import { IEmailTemplate } from '@/typings';
 import { Form, useForm, useFormState, useField } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext, useContext, useMemo } from 'react';
 import { BlocksProvider } from '..//BlocksProvider';
 import { HoverIdxProvider } from '../HoverIdxProvider';
 import { PropsProvider, PropsProviderProps } from '../PropsProvider';
@@ -13,6 +13,28 @@ import { FocusBlockLayoutProvider } from '../FocusBlockLayoutProvider';
 import { PreviewEmailProvider } from '../PreviewEmailProvider';
 import { LanguageProvider } from '../LanguageProvider';
 import { overrideErrorLog, restoreErrorLog } from '@/utils/logger';
+
+interface EmailEditorContextType {
+  templateValue: IEmailTemplate;
+  handleTemplateChange: (template: IEmailTemplate) => void;
+}
+
+const EmailEditorContext = createContext<EmailEditorContextType>({
+  templateValue: {
+    subject: '',
+    subTitle: '',
+    content: [],
+  },
+  handleTemplateChange: () => { },
+});
+
+export const useEmailEditor = () => {
+  const context = useContext(EmailEditorContext);
+  if (!context) {
+    throw new Error('useEmailEditor must be used within an EmailEditorProvider');
+  }
+  return context;
+};
 
 export interface EmailEditorProviderProps<T extends IEmailTemplate = any>
   extends Omit<PropsProviderProps, 'children'> {
@@ -28,15 +50,36 @@ export interface EmailEditorProviderProps<T extends IEmailTemplate = any>
 export const EmailEditorProvider = <T extends any>(
   props: EmailEditorProviderProps & T,
 ) => {
-  const { data, children, onSubmit = () => {}, validationSchema } = props;
+  const { data, children, onSubmit = () => { }, validationSchema } = props;
 
-  const initialValues = useMemo(() => {
+  const [templateValue, setTemplateValue] = useState<IEmailTemplate>({
+    subject: data?.subject || '',
+    subTitle: data?.subTitle || '',
+    content: data?.content || {
+      type: 'page',
+      data: {
+        value: {
+          breakpoint: '480px',
+          headAttributes: '',
+          fonts: [],
+          headStyles: [],
+        }
+      },
+      attributes: {
+        width: '100%',
+        'background-color': '#ffffff',
+      },
+      children: []
+    },
+  });
+
+  const templateValueMemo = useMemo(() => {
     return {
-      subject: data.subject,
-      subTitle: data.subTitle,
-      content: data.content,
+      subject: templateValue.subject,
+      subTitle: templateValue.subTitle,
+      content: templateValue.content,
     };
-  }, [data]);
+  }, [templateValue.subject, templateValue.subTitle, templateValue.content]);
 
   useEffect(() => {
     overrideErrorLog();
@@ -45,44 +88,53 @@ export const EmailEditorProvider = <T extends any>(
     };
   }, []);
 
-  if (!initialValues.content) return null;
+  const handleTemplateChange = (template: IEmailTemplate) => setTemplateValue(template);
+
+  console.log("templateValueMemo", templateValueMemo);
 
   return (
-    <Form<IEmailTemplate>
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      enableReinitialize
-      validate={validationSchema}
-      mutators={{ ...arrayMutators, setFieldTouched: setFieldTouched as any }}
-      subscription={{ submitting: true, pristine: true }}
+    <EmailEditorContext.Provider
+      value={{
+        templateValue,
+        handleTemplateChange,
+      }}
     >
-      {() => (
-        <>
-          <PropsProvider {...props}>
-            <LanguageProvider locale={props.locale}>
-              <PreviewEmailProvider>
-                <RecordProvider>
-                  <BlocksProvider>
-                    <HoverIdxProvider>
-                      <ScrollProvider>
-                        <FocusBlockLayoutProvider>
-                          <FormWrapper children={children} />
-                        </FocusBlockLayoutProvider>
-                      </ScrollProvider>
-                    </HoverIdxProvider>
-                  </BlocksProvider>
-                </RecordProvider>
-              </PreviewEmailProvider>
-            </LanguageProvider>
-          </PropsProvider>
-          <RegisterFields />
-        </>
-      )}
-    </Form>
+      <Form<IEmailTemplate>
+        initialValues={templateValueMemo}
+        onSubmit={onSubmit}
+        enableReinitialize
+        validate={validationSchema}
+        mutators={{ ...arrayMutators, setFieldTouched: setFieldTouched as any }}
+        subscription={{ submitting: true, pristine: true }}
+      >
+        {() => (
+          <>
+            <PropsProvider {...props}>
+              <LanguageProvider locale={props.locale}>
+                <PreviewEmailProvider>
+                  <RecordProvider>
+                    <BlocksProvider>
+                      <HoverIdxProvider>
+                        <ScrollProvider>
+                          <FocusBlockLayoutProvider>
+                            <FormWrapper children={children} />
+                          </FocusBlockLayoutProvider>
+                        </ScrollProvider>
+                      </HoverIdxProvider>
+                    </BlocksProvider>
+                  </RecordProvider>
+                </PreviewEmailProvider>
+              </LanguageProvider>
+            </PropsProvider>
+            <RegisterFields />
+          </>
+        )}
+      </Form>
+    </EmailEditorContext.Provider>
   );
 };
 
-function FormWrapper({ children }: { children: EmailEditorProviderProps['children'] }) {
+function FormWrapper({ children }: { children: EmailEditorProviderProps['children']; }) {
   const data = useFormState<IEmailTemplate>();
   const helper = useForm<IEmailTemplate>();
   return <>{children(data, helper)}</>;
@@ -92,7 +144,7 @@ function FormWrapper({ children }: { children: EmailEditorProviderProps['childre
 
 const RegisterFields = React.memo(() => {
   const { touched } = useFormState<IEmailTemplate>();
-  const [touchedMap, setTouchedMap] = useState<{ [key: string]: boolean }>({});
+  const [touchedMap, setTouchedMap] = useState<{ [key: string]: boolean; }>({});
 
   useEffect(() => {
     if (touched) {
@@ -121,7 +173,7 @@ const RegisterFields = React.memo(() => {
   );
 });
 
-function RegisterField({ name }: { name: string }) {
+function RegisterField({ name }: { name: string; }) {
   useField(name);
   return <></>;
 }
