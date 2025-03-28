@@ -123,6 +123,7 @@ export default function Editor() {
   const { id, userId } = useQuery();
   const loading = useLoading(template.loadings.fetchById);
 
+
   useEffect(() => {
     if (id) {
       if (!userId) {
@@ -269,7 +270,7 @@ export default function Editor() {
                 <StandardLayout
                   categories={defaultCategories}
                   showSourceCode={false}
-                  showBlockLayer={false}
+                  showBlockLayer={true}
                 >
                   <EmailEditor />
                 </StandardLayout>
