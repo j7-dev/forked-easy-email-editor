@@ -120,6 +120,7 @@ export default function Editor() {
   const { id, userId } = useQuery();
   const loading = useLoading(template.loadings.fetchById);
 
+
   useEffect(() => {
     if (id) {
       if (!userId) {
