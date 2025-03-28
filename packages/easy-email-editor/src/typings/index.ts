@@ -1,4 +1,4 @@
-import { IPage } from 'easy-email-core';
+import { IPage } from 'j7-easy-email-core';
 
 export interface IEmailTemplate {
   content: IPage;

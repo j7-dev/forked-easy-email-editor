@@ -1,4 +1,5 @@
 lockfileVersion: '9.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
@@ -108,6 +109,7 @@ importers:
 
 packages:
 
+  '@babel/code-frame@7.12.11':
   '@babel/code-frame@7.12.11':
     resolution: {integrity: sha512-Zt1yodBx1UcyiePMSkWnU4hPqhwq7hGi2nFL1LeA3EUl+q2LQx16MISgJ0+z7dnmgvP9QtIleuETGOiOH1RcIw==}
 
@@ -4624,11 +4626,13 @@ snapshots:
   word-wrap@1.2.5: {}
 
   wrap-ansi@7.0.0:
+  wrap-ansi@7.0.0:
     dependencies:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
 
+  wrap-ansi@8.1.0:
   wrap-ansi@8.1.0:
     dependencies:
       ansi-styles: 6.2.1

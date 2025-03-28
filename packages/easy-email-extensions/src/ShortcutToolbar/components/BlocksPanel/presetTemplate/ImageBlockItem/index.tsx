@@ -1,6 +1,6 @@
 import React from 'react';
-import { AdvancedType, IImage, RecursivePartial } from 'easy-email-core';
-import { Stack } from 'easy-email-editor';
+import { AdvancedType, IImage, RecursivePartial } from 'j7-easy-email-core';
+import { Stack } from 'j7-easy-email-editor';
 
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';

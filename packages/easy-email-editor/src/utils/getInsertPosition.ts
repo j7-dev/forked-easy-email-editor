@@ -9,7 +9,7 @@ import {
   getParentByIdx,
   BasicType,
   AdvancedType,
-} from 'easy-email-core';
+} from 'j7-easy-email-core';
 import { DirectionPosition } from './getDirectionPosition';
 
 interface Params {

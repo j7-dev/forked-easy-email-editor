@@ -1,4 +1,5 @@
 lockfileVersion: '9.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
@@ -157,6 +158,7 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
+  '@arco-design/color@0.4.0':
   '@arco-design/color@0.4.0':
     resolution: {integrity: sha512-s7p9MSwJgHeL8DwcATaXvWT3m2SigKpxx4JA1BGPHL4gfvaQsmQfrLBDpjOJFJuJ2jG2dMt3R3P8Pm9E65q18g==}
 
@@ -2436,6 +2438,7 @@ snapshots:
   function-bind@1.1.2: {}
 
   gensync@1.0.0-beta.2: {}
+  gensync@1.0.0-beta.2: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -2456,6 +2459,7 @@ snapshots:
       es-object-atoms: 1.1.1
 
   glob@7.2.3:
+  glob@7.2.3:
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -2465,11 +2469,13 @@ snapshots:
       path-is-absolute: 1.0.1
 
   globals@11.12.0: {}
+  globals@11.12.0: {}
 
   gopd@1.2.0: {}
 
   graceful-fs@4.2.11: {}
 
+  has-flag@4.0.0: {}
   has-flag@4.0.0: {}
 
   has-symbols@1.1.0: {}
@@ -2479,12 +2485,15 @@ snapshots:
       function-bind: 1.1.2
 
   he@1.2.0: {}
+  he@1.2.0: {}
 
+  header-case@2.0.4:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
       tslib: 2.8.1
 
+  history@4.10.1:
   history@4.10.1:
     dependencies:
       '@babel/runtime': 7.27.0
@@ -2499,6 +2508,7 @@ snapshots:
       react-is: 16.13.1
 
   html-minifier-terser@6.1.0:
+  html-minifier-terser@6.1.0:
     dependencies:
       camel-case: 4.1.2
       clean-css: 5.3.3
@@ -2509,6 +2519,7 @@ snapshots:
       terser: 5.39.0
 
   html2canvas@1.4.1:
+  html2canvas@1.4.1:
     dependencies:
       css-line-break: 2.1.0
       text-segmentation: 1.0.3
@@ -2516,10 +2527,12 @@ snapshots:
   hyphenate-style-name@1.1.0: {}
 
   iconv-lite@0.6.3:
+  iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
     optional: true
 
+  image-size@0.5.5:
   image-size@0.5.5:
     optional: true
 
@@ -2534,6 +2547,7 @@ snapshots:
       once: 1.4.0
       wrappy: 1.0.2
 
+  inherits@2.0.4: {}
   inherits@2.0.4: {}
 
   inline-style-prefixer@7.0.1:
@@ -2617,6 +2631,7 @@ snapshots:
       js-tokens: 4.0.0
 
   lower-case@2.0.2:
+  lower-case@2.0.2:
     dependencies:
       tslib: 2.8.1
 
@@ -2625,9 +2640,11 @@ snapshots:
       yallist: 3.1.1
 
   magic-string@0.25.9:
+  magic-string@0.25.9:
     dependencies:
       sourcemap-codec: 1.4.8
 
+  make-dir@2.1.0:
   make-dir@2.1.0:
     dependencies:
       pify: 4.0.1
@@ -2651,6 +2668,7 @@ snapshots:
   mime@1.6.0:
     optional: true
 
+  minimatch@3.1.2:
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.11
@@ -2689,6 +2707,7 @@ snapshots:
     optional: true
 
   no-case@3.0.4:
+  no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
       tslib: 2.8.1
@@ -2701,34 +2720,43 @@ snapshots:
   number-precision@1.6.0: {}
 
   object-assign@4.1.1: {}
+  object-assign@4.1.1: {}
 
   object-inspect@1.13.4: {}
 
   once@1.4.0:
+  once@1.4.0:
     dependencies:
       wrappy: 1.0.2
 
+  param-case@3.0.4:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.8.1
 
   parse-node-version@1.0.1: {}
+  parse-node-version@1.0.1: {}
 
+  pascal-case@3.1.2:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.1
 
   path-case@3.0.4:
+  path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.8.1
 
   path-is-absolute@1.0.1: {}
+  path-is-absolute@1.0.1: {}
 
   path-key@3.1.1: {}
+  path-key@3.1.1: {}
 
+  path-parse@1.0.7: {}
   path-parse@1.0.7: {}
 
   path-to-regexp@1.9.0:
@@ -2758,6 +2786,7 @@ snapshots:
   preact@10.26.4: {}
 
   prop-types@15.8.1:
+  prop-types@15.8.1:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
@@ -2765,6 +2794,7 @@ snapshots:
 
   property-expr@2.0.6: {}
 
+  prr@1.0.1:
   prr@1.0.1:
     optional: true
 
@@ -2778,6 +2808,7 @@ snapshots:
       react: 17.0.2
 
   react-color@2.19.3(react@17.0.2):
+  react-color@2.19.3(react@17.0.2):
     dependencies:
       '@icons/material': 0.2.4(react@17.0.2)
       lodash: 4.17.21
@@ -2788,6 +2819,7 @@ snapshots:
       reactcss: 1.2.3(react@17.0.2)
       tinycolor2: 1.6.0
 
+  react-dom@17.0.2(react@17.0.2):
   react-dom@17.0.2(react@17.0.2):
     dependencies:
       loose-envify: 1.4.0
@@ -2829,6 +2861,7 @@ snapshots:
     optionalDependencies:
       react-dom: 17.0.2(react@17.0.2)
 
+  react-refresh@0.10.0: {}
   react-refresh@0.10.0: {}
 
   react-router-dom@5.3.4(react@17.0.2):
@@ -2889,10 +2922,12 @@ snapshots:
       tslib: 2.8.1
 
   react@17.0.2:
+  react@17.0.2:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
 
+  reactcss@1.2.3(react@17.0.2):
   reactcss@1.2.3(react@17.0.2):
     dependencies:
       lodash: 4.17.21
@@ -2925,9 +2960,11 @@ snapshots:
       supports-preserve-symlinks-flag: 1.0.0
 
   rimraf@3.0.2:
+  rimraf@3.0.2:
     dependencies:
       glob: 7.2.3
 
+  rollup@2.77.3:
   rollup@2.77.3:
     optionalDependencies:
       fsevents: 2.3.3
@@ -2936,6 +2973,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.27.0
 
+  safer-buffer@2.1.2:
   safer-buffer@2.1.2:
     optional: true
 
@@ -2951,10 +2989,12 @@ snapshots:
     optional: true
 
   scheduler@0.20.2:
+  scheduler@0.20.2:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
 
+  screenfull@5.2.0: {}
   screenfull@5.2.0: {}
 
   scroll-into-view-if-needed@2.2.31:
@@ -2967,19 +3007,24 @@ snapshots:
   semver@6.3.1: {}
 
   sentence-case@3.0.4:
+  sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.1
       upper-case-first: 2.0.2
 
   set-harmonic-interval@1.0.1: {}
+  set-harmonic-interval@1.0.1: {}
 
   shallowequal@1.1.0: {}
+  shallowequal@1.1.0: {}
 
+  shebang-command@2.0.0:
   shebang-command@2.0.0:
     dependencies:
       shebang-regex: 3.0.0
 
+  shebang-regex@3.0.0: {}
   shebang-regex@3.0.0: {}
 
   side-channel-list@1.0.0:
@@ -3015,6 +3060,7 @@ snapshots:
       is-arrayish: 0.3.2
 
   snake-case@3.0.4:
+  snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.8.1
@@ -3022,27 +3068,35 @@ snapshots:
   source-map-js@1.2.1: {}
 
   source-map-support@0.5.21:
+  source-map-support@0.5.21:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
 
   source-map@0.5.6: {}
+  source-map@0.5.6: {}
 
+  source-map@0.6.1: {}
   source-map@0.6.1: {}
 
   sourcemap-codec@1.4.8: {}
+  sourcemap-codec@1.4.8: {}
 
+  stack-generator@2.0.10:
   stack-generator@2.0.10:
     dependencies:
       stackframe: 1.3.4
 
   stackframe@1.3.4: {}
+  stackframe@1.3.4: {}
 
+  stacktrace-gps@3.1.2:
   stacktrace-gps@3.1.2:
     dependencies:
       source-map: 0.5.6
       stackframe: 1.3.4
 
+  stacktrace-js@2.0.2:
   stacktrace-js@2.0.2:
     dependencies:
       error-stack-parser: 2.1.4
@@ -3056,6 +3110,7 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+  supports-preserve-symlinks-flag@1.0.0: {}
 
   terser@5.39.0:
     dependencies:
@@ -3064,6 +3119,7 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
+  text-segmentation@1.0.3:
   text-segmentation@1.0.3:
     dependencies:
       utrie: 1.0.2
@@ -3118,9 +3174,11 @@ snapshots:
       picocolors: 1.1.1
 
   upper-case-first@2.0.2:
+  upper-case-first@2.0.2:
     dependencies:
       tslib: 2.8.1
 
+  upper-case@2.0.2:
   upper-case@2.0.2:
     dependencies:
       tslib: 2.8.1
@@ -3140,6 +3198,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.0.12
 
+  utrie@1.0.2:
   utrie@1.0.2:
     dependencies:
       base64-arraybuffer: 1.0.2
