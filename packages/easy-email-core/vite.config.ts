@@ -16,7 +16,7 @@ export default defineConfig({
     target: 'es2015',
     lib: {
       entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: 'easy-email-core',
+      name: 'j7-easy-email-core',
       formats: ['es', 'cjs'],
       fileName: (mod) => `index.${mod}.js`,
     },

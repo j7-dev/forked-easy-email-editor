@@ -1,6 +1,6 @@
 import React from 'react';
-import { AdvancedType } from 'easy-email-core';
-import { Stack } from 'easy-email-editor';
+import { AdvancedType } from 'j7-easy-email-core';
+import { Stack } from 'j7-easy-email-editor';
 
 import { BlockMaskWrapper } from '@extensions/ShortcutToolbar/components/BlockMaskWrapper';
 import { getImg } from '@extensions/ShortcutToolbar/utils/getImg';
@@ -153,7 +153,7 @@ const heroList = [
             'font-weight': '500',
             'background-color': 'transparent',
             'inner-padding': '10px 15px 4px 15px',
-            'font-family': '\'Josefin Sans\', sans-serif',
+            'font-family': "'Josefin Sans', sans-serif",
             'border-radius': '0px',
           },
           children: [],

@@ -9,7 +9,7 @@ import {
   useFocusIdx,
   useHoverIdx,
   useRefState,
-} from 'easy-email-editor';
+} from 'j7-easy-email-editor';
 import {
   BasicType,
   BlockManager,
@@ -19,14 +19,17 @@ import {
   getPageIdx,
   getParentIdx,
   IBlockData,
-} from 'easy-email-core';
+} from 'j7-easy-email-core';
 import styles from './index.module.scss';
 import { cloneDeep, get, isString, isEqual } from 'lodash';
 import { EyeIcon } from './components/EyeIcon';
 import { BlockTree, BlockTreeProps } from './components/BlockTree';
 import { ContextMenu } from './components/ContextMenu';
 import { classnames } from '@extensions/utils/classnames';
-import { getDirectionFormDropPosition, useAvatarWrapperDrop } from './hooks/useAvatarWrapperDrop';
+import {
+  getDirectionFormDropPosition,
+  useAvatarWrapperDrop,
+} from './hooks/useAvatarWrapperDrop';
 import { getIconNameByBlockType } from '@extensions/utils/getIconNameByBlockType';
 import { Space } from '@arco-design/web-react';
 import { getBlockTitle } from '@extensions/utils/getBlockTitle';

@@ -25,18 +25,21 @@ import {
   EmailEditor,
   EmailEditorProvider,
   IEmailTemplate,
-} from 'easy-email-editor';
+} from 'j7-easy-email-editor';
 
 import { Stack } from '@demo/components/Stack';
 import { pushEvent } from '@demo/utils/pushEvent';
 import { UserStorage } from '@demo/utils/user-storage';
 
-import { AdvancedType, IBlockData, JsonToMjml } from 'easy-email-core';
-import { ExtensionProps, StandardLayout } from 'easy-email-extensions';
+import { AdvancedType, BasicType, IBlockData, JsonToMjml } from 'j7-easy-email-core';
+import { ExtensionProps, MjmlToJson, StandardLayout } from 'j7-easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
-import 'easy-email-editor/lib/style.css';
-import 'easy-email-extensions/lib/style.css';
+// Register external blocks
+import './components/CustomBlocks';
+
+import 'j7-easy-email-editor/lib/style.css';
+import 'j7-easy-email-extensions/lib/style.css';
 import blueTheme from '@arco-themes/react-easy-email-theme/css/arco.css?inline';
 
 import { Uploader } from '@demo/utils/Uploader';

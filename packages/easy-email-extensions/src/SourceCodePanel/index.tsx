@@ -6,19 +6,25 @@ import {
   getParentByIdx,
   IBlockData,
   JsonToMjml,
-} from 'easy-email-core';
+} from 'j7-easy-email-core';
 import {
   useBlock,
   useFocusIdx,
   useEditorContext,
   useEditorProps,
-} from 'easy-email-editor';
+} from 'j7-easy-email-editor';
 import { cloneDeep } from 'lodash';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { MjmlToJson } from '@extensions/utils/MjmlToJson';
 import styles from './index.module.scss';
 
-export function SourceCodePanel({ jsonReadOnly, mjmlReadOnly }: { jsonReadOnly: boolean; mjmlReadOnly: boolean }) {
+export function SourceCodePanel({
+  jsonReadOnly,
+  mjmlReadOnly,
+}: {
+  jsonReadOnly: boolean;
+  mjmlReadOnly: boolean;
+}) {
   const { setValueByIdx, focusBlock, values } = useBlock();
   const { focusIdx } = useFocusIdx();
 
@@ -33,7 +39,7 @@ export function SourceCodePanel({ jsonReadOnly, mjmlReadOnly }: { jsonReadOnly: 
 
   const onChangeCode = useCallback(
     (event: React.FocusEvent<HTMLTextAreaElement>) => {
-      if(!jsonReadOnly){
+      if (!jsonReadOnly) {
         try {
           const parseValue = JSON.parse(
             JSON.stringify(eval('(' + event.target.value + ')')),
@@ -62,7 +68,7 @@ export function SourceCodePanel({ jsonReadOnly, mjmlReadOnly }: { jsonReadOnly: 
 
   const onMjmlChange = useCallback(
     (event: React.FocusEvent<HTMLTextAreaElement>) => {
-      if(!mjmlReadOnly){
+      if (!mjmlReadOnly) {
         try {
           const parseValue = MjmlToJson(event.target.value);
           if (parseValue.type !== BasicType.PAGE) {

@@ -1,8 +1,8 @@
 {
-  "name": "easy-email-core",
+  "name": "j7-easy-email-core",
   "license": "MIT",
   "description": "Email editor",
-  "version": "4.16.1",
+  "version": "4.17.0",
   "author": "m-Ryan",
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "babel-jest": "^27.0.6",
+    "css-loader": "^7.1.2",
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-loader": "^4.0.2",
@@ -65,6 +66,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
+    "sass": "^1.80.6",
+    "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
     "ts-node": "^10.4.0",
     "tsc-alias": "^1.4.1",
     "tsconfig-paths": "^3.11.0",
@@ -81,5 +85,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "gitHead": "f6cf54160ffdba0d4d6b23483293dd9190d2d2c2"
+  "gitHead": "c93209ed9e8c8c87d660fae792d97842f8d8d26c"
 }
