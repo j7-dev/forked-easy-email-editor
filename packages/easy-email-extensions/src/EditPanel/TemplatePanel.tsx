@@ -40,6 +40,7 @@ export function TemplatePanel() {
 
   return (
     <div className={styles.templatePanel}>
+      <TemplateWarning />
       <Row gutter={[16, 16]}>
         {templates.map((template: { path: string; article_id: number; title: string; summary: string; picture: string; category_id: number; origin_source: string; readcount: number; user_id: number; secret: number; level: number; created_at: number; updated_at: number; deleted_at: number; tags: any[]; }) => (
           <Col key={template.article_id} span={12}>
@@ -59,6 +60,18 @@ export function TemplatePanel() {
           </Col>
         ))}
       </Row>
+    </div>
+  );
+}
+
+function TemplateWarning() {
+  return (
+    <div className={styles.templateWarning}>
+      <div className={styles.templateWarningIcon}>&#x26A0;</div>
+      <div className={styles.templateWarningContent}>
+        <h3>警告</h3>
+        <p>注意: 選擇模板後, 會直接覆蓋當前編輯器內容</p>
+      </div>
     </div>
   );
 }
