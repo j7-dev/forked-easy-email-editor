@@ -270,7 +270,7 @@ export default function Editor() {
                 <StandardLayout
                   categories={defaultCategories}
                   showSourceCode={false}
-                  showBlockLayer={false}
+                  showBlockLayer={true}
                 >
                   <EmailEditor />
                 </StandardLayout>
