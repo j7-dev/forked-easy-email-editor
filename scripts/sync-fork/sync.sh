@@ -35,6 +35,8 @@ git checkout -B build "$UPSTREAM"
 
 echo "==> 注入 recipe (從 $RECIPE_REF)"
 git checkout "$RECIPE_REF" -- scripts/sync-fork
+# 保險: build 分支可能無 .gitattributes，去除 CRLF 以免 bash 炸
+sed -i 's/\r$//' scripts/sync-fork/*.sh scripts/sync-fork/*.mjs 2>/dev/null || true
 
 echo "==> 套用 j7 客製"
 RECIPE_REF="$RECIPE_REF" INCLUDE_DEMO="${INCLUDE_DEMO:-1}" bash scripts/sync-fork/apply-j7.sh

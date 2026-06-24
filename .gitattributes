@@ -1,0 +1,3 @@
+# sync-fork recipe 強制 LF：Windows autocrlf=true 下 .sh 被轉 CRLF 會讓 bash 執行炸掉
+scripts/sync-fork/*.sh   text eol=lf
+scripts/sync-fork/*.mjs  text eol=lf
