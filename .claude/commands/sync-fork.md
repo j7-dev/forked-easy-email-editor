@@ -4,6 +4,10 @@ description: 從 upstream 重生 j7 fork (改名+deps+Page+prettier)，失敗時
 
 執行 `bash scripts/sync-fork/sync.sh`，把 j7 客製重生到 `build` 分支。
 
+分支模型：`master` 唯讀（不 merge、不改）；`j7/custom` = recipe 來源；
+`build` = 每次 `git checkout -B build origin/master` 重置重生的成品（發佈用，拋棄式）。
+**永不 merge upstream**，一律重生。
+
 完整模型與拆解見 `scripts/sync-fork/README.md`。執行重點：
 
 1. 跑 `bash scripts/sync-fork/sync.sh`，逐步回報每個 `==>` 步驟結果。
