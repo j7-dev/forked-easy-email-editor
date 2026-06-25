@@ -13,3 +13,6 @@ stats.html
 
 # webstorm
 .idea
+
+# serena MCP 工具目錄
+.serena/

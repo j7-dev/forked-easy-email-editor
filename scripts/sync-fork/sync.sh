@@ -22,8 +22,11 @@ UPSTREAM="${UPSTREAM:-origin/master}"
 RECIPE_REF="${RECIPE_REF:-j7/custom}"
 REMOTE="${UPSTREAM%%/*}"
 
-if [ -n "$(git status --porcelain)" ]; then
-  echo "!! 工作目錄不乾淨，先 commit / stash 再跑。"
+# 只擋「已追蹤」變更 (未追蹤如 .serena / scratchpad / build 產物不會被 checkout 清掉, 不擋)
+DIRTY="$(git status --porcelain --untracked-files=no)"
+if [ -n "$DIRTY" ]; then
+  echo "!! 有未提交的『已追蹤』變更，先 commit / stash 再跑:"
+  echo "$DIRTY"
   exit 1
 fi
 
