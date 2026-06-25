@@ -23,11 +23,13 @@ RECIPE_REF="${RECIPE_REF:-j7/custom}"
 RECIPE_DIR="scripts/sync-fork"
 INCLUDE_DEMO="${INCLUDE_DEMO:-1}"
 
-echo "==> [1/6] 確保 .prettierrc 存在"
+echo "==> [1/6] 確保 .prettierrc 存在 + .gitignore 忽略工具目錄"
 if [ ! -f .prettierrc ]; then
   cp "$RECIPE_DIR/prettierrc.json" .prettierrc
   echo "    補回 .prettierrc (upstream 已刪)"
 fi
+# build 分支(=upstream).gitignore 沒有 .serena, 避免 step 4 git add -A 撈進來
+grep -qxF '.serena/' .gitignore 2>/dev/null || echo '.serena/' >> .gitignore
 
 echo "==> [2/6] 還原 owned 檔 (從 $RECIPE_REF)"
 # 真邏輯②: 新檔 types.d.ts (scss module 宣告)
