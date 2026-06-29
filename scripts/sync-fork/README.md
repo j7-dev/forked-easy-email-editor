@@ -43,15 +43,20 @@ git add -A && git commit -m "build: j7 fork @ $(git rev-parse --short origin/mas
 ```
 
 `sync.sh` 內部自動：`git fetch origin` → `git checkout -B build origin/master`
-→ 注入 recipe → `apply-j7.sh`（改名 / deps / Page / owned 還原 / prettier）。
+→ 注入 recipe → `apply-j7.sh`（改名 / deps / Page / owned 還原；**prettier 預設關閉**）。
 
 想先看 upstream 這次改了啥（不 merge 也能看）：
 ```bash
 git fetch origin && git log --oneline j7/custom..origin/master
 ```
 
-環境變數：`UPSTREAM`（預設 `origin/master`）、`RECIPE_REF`（預設 `j7/custom`）、`INCLUDE_DEMO`（`1`/`0`）。
+環境變數：`UPSTREAM`（預設 `origin/master`）、`RECIPE_REF`（預設 `j7/custom`）、
+`INCLUDE_DEMO`（`1`/`0`）、`RUN_PRETTIER`（預設 `0`；設 `1` 才重現 j7 全庫排版）。
 或在 Claude Code 裡輸入 `/sync-fork`（跑 sync.sh，失敗時協助修補）。
+
+> **prettier 預設關閉**：純排版、零功能。關掉讓 build 跟 upstream 的 diff 最小（只剩改名 +
+> deps + Page），好 review，sync 也更快。發佈的 dist 不受排版影響。需要 byte-match 舊 j7
+> 排版才 `RUN_PRETTIER=1 bash scripts/sync-fork/sync.sh`。
 
 ## 為什麼這樣做
 
@@ -61,7 +66,7 @@ git fetch origin && git log --oneline j7/custom..origin/master
 | 類別 | 內容 | 重生方式 | 性質 |
 |---|---|---|---|
 | 改名 | `easy-email-{core,editor,extensions,localization}` → `j7-*`（窄：import / package name / alias key） | codemod | 機械，防彈 |
-| 排版 | 全庫 prettier（`singleAttributePerLine` 等，upstream 已刪 `.prettierrc`） | `prettier --write` | 機械 |
+| 排版 | 全庫 prettier（`singleAttributePerLine` 等） | `prettier --write`（**預設關閉**，`RUN_PRETTIER=1` 才跑） | 機械，純排版可丟 |
 | **真邏輯①** | `Page` 預設 `hideSubTitle=true, hideSubject=true` | perl 精準改 | **保存** |
 | **真邏輯②** | `types.d.ts`（scss module 宣告，配合 sass deps） | owned 檔還原 | **保存** |
 | devDeps | core/editor/extensions 加 sass·postcss 工具鏈 | `add-deps.mjs` | **保存** |

@@ -23,11 +23,7 @@ RECIPE_REF="${RECIPE_REF:-j7/custom}"
 RECIPE_DIR="scripts/sync-fork"
 INCLUDE_DEMO="${INCLUDE_DEMO:-1}"
 
-echo "==> [1/6] 確保 .prettierrc 存在 + .gitignore 忽略工具目錄"
-if [ ! -f .prettierrc ]; then
-  cp "$RECIPE_DIR/prettierrc.json" .prettierrc
-  echo "    補回 .prettierrc (upstream 已刪)"
-fi
+echo "==> [1/6] .gitignore 忽略工具目錄"
 # build 分支(=upstream).gitignore 沒有 .serena, 避免 step 4 git add -A 撈進來
 grep -qxF '.serena/' .gitignore 2>/dev/null || echo '.serena/' >> .gitignore
 
@@ -80,12 +76,19 @@ echo "    改名掃描 ${#FILES[@]} 檔"
 perl -pi -e 's{(EASY_EMAIL_EDITOR_ID\s*=\s*[\x27\x22])j7-}{$1}' \
   packages/easy-email-editor/src/constants.ts 2>/dev/null || true
 
-echo "==> [6/6] prettier 重排版"
-if npx --yes prettier@3 --config .prettierrc --write \
-     'packages/**/*.{ts,tsx,json}' 'demo/**/*.{ts,tsx,json}' --log-level warn; then
-  echo "    OK 排版重生"
+echo "==> [6/6] prettier 重排版 (預設關閉)"
+# prettier 純排版、零功能，預設不跑 -> build 跟 upstream diff 最小、好 review。
+# 要重現 j7 原本的排版才設 RUN_PRETTIER=1。
+if [ "${RUN_PRETTIER:-0}" = "1" ]; then
+  cp "$RECIPE_DIR/prettierrc.json" .prettierrc
+  if npx --yes prettier@3 --config .prettierrc --write \
+       'packages/**/*.{ts,tsx,json}' 'demo/**/*.{ts,tsx,json}' --log-level warn; then
+    echo "    OK 排版重生"
+  else
+    echo "    ! prettier 失敗 (離線?)。排版略過，不影響功能/發佈。"
+  fi
 else
-  echo "    ! prettier 失敗 (離線?)。排版略過，不影響功能/發佈。"
+  echo "    跳過 (純排版無功能影響; 要重排設 RUN_PRETTIER=1)"
 fi
 
 echo

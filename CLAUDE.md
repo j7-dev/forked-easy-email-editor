@@ -24,6 +24,7 @@ git add -A && git commit -m "build: j7 fork @ <sha>"   # commit 到 build
 ```
 
 新 diff 透過 `checkout -B build origin/master` 自動進來，**不需 merge**。
+prettier 全庫重排預設關閉（純排版無功能；要重現舊 j7 排版才 `RUN_PRETTIER=1`）。
 細節、客製拆解、失敗排查見 `scripts/sync-fork/README.md`。也可用 `/sync-fork` 命令。
 
 ### 改客製
